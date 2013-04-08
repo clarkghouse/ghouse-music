@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    $HELPER
+\*------------------------------------*/
+.force-max-height
+{
+	min-height: 100%;
+	height: auto!important;
+	height: 100%;
+	display:block;
+}
+.no-text-interactivity{
+	&, & *, * > & {
+		@include vendor(user-select, none);
+		cursor:default;
+	}
+}

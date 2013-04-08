@@ -1,0 +1,23 @@
+# app configuration
+env: local                          # local, dev, or prod
+local:                              # settings for local environment
+    db:
+        driver: pdo_mysql
+        dbname: ghouse
+        host: 127.0.0.1
+        user: root
+        password: vrooom
+# dev:                                # settings for development environment
+#     db:
+#         driver: 
+#         dbname: 
+#         host: 
+#         user: 
+#         password: 
+# prod:                               # settings for production environment
+#     db:
+#         driver:
+#         dbname:
+#         host:
+#         user:
+#         password:

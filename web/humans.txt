@@ -1,0 +1,12 @@
+TEAM
+
+    Clark Burkhardt -- Developer -- @wellbaker
+    Ryan Bambery -- Designer -- @wellbaker
+
+
+
+SITE
+
+    HTML
+    CSS
+    inuit.css -- inuitcss.com

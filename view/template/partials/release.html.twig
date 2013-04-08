@@ -1,0 +1,17 @@
+<img src="{{ app.base_url }}/img/artist/{{ app.artist.slug }}/releases/{{ featured_release.slug }}.{{ featured_release.picture_ext }}">
+{% if featured_release.spotify_uri != '' %}
+<iframe class="spotify_player--artist_page" src="https://embed.spotify.com/?uri={{ featured_release.spotify_uri }}" frameborder="0" allowtransparency="true"></iframe>
+{% endif %}
+
+<div class="grid  release-buttons">
+	<div class="grid__item  one-half">
+		<a href="{{ featured_release.tweet_link }}" rel="tweet" class="btn  btn--full  btn--lrg  btn--twitter">
+			<i class="icon" data-icon="&#xF099"></i>Share
+		</a>
+	</div><!--
+--><div class="grid__item  one-half">
+		<a href="{{ featured_release.itunes_url }}" class="btn  btn--full  btn--lrg  btn--twitter" target="_blank">
+			<i class="icon  icon--corp" data-icon="&#xF344"></i>Buy
+		</a>
+	</div>
+</div>

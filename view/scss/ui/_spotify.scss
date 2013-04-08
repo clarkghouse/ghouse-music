@@ -1,0 +1,15 @@
+/*------------------------------------*\
+    $SPOTIFY PLAYER
+\*------------------------------------*/
+/*iframe*/.spotify_player{
+	height:80px;
+	width:auto;
+	max-width:380px;
+	display:block;
+	margin:$base-line-height auto 0px auto;
+}
+
+/*iframe*/.spotify_player--artist_page{
+	@extend .spotify_player;
+	width:100%;
+}

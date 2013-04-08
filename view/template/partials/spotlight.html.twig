@@ -1,0 +1,29 @@
+{# must call $mw['get_spotlight_features'] middleware #}
+{% set spotlight = app.spotlight_features %}
+<div class="spotlight">
+	<div class="grid">
+		
+		<div class="grid__item  two-thirds  palm-one-whole">
+
+			<a class="spotlight__feature  spotlight__feature--main" href="{{ spotlight.main.url }}">
+				<section style="background-image:url({{ app.uploads_url ~ '/' ~ 'features/' ~ spotlight.main.img_file }})">
+					<header>{{ spotlight.main.title|raw }}</header>
+				</section>
+			</a><!-- /spotlight__feature -->
+
+		</div><!--
+
+	--><div class="grid__item  one-third  palm-one-whole">
+			{% for sub_feature in spotlight.sub_features %}
+				
+				<a class="spotlight__feature  spotlight__feature--subfeature  {{ cycle(['even', 'odd'], loop.index) }}" href="{{ sub_feature.url }}">
+					<section style="background-image:url({{ app.uploads_url ~ '/' ~ 'features/' ~ sub_feature.img_file }})">
+						<header>{{ sub_feature.title|raw }}</header>
+					</section>
+				</a><!-- /spotlight__feature -->
+
+			{% endfor %}
+		</div>
+
+	</div><!-- /gw -->
+</div><!-- /spotlight -->

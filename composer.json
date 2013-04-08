@@ -1,0 +1,26 @@
+{   
+    "require": {            
+        "php"                                           : ">=5.3.2",
+        "EHER/PHPUnit"                                  : "dev-master",
+        "silex/silex"                                   : "dev-master",
+        "twig/twig"                                     : "1.11.0",
+        "symfony/http-foundation"                       : ">=2.2,<2.3-dev",
+        "monolog/monolog"                               : ">=1.0.0",
+        "symfony/form"                                  : "2.1.*",
+        "symfony/translation"                           : "2.1.*",
+        "symfony/twig-bridge"                           : "2.1.x-dev",
+        "symfony/validator"                             : "2.1.*",
+        "symfony/yaml"                                  : "2.1.*",
+        "symfony/config"                                : "2.1.*",
+        "swiftmailer/swiftmailer"                       : "4.1.7",
+        "kriswallsmith/assetic"                         : "1.0.x-dev",
+        "fate/silex-extensions"                         : "dev-master",
+        "doctrine/dbal"                                 : "2.1.*"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "GHouse": "src/lib"
+        }
+    }
+}

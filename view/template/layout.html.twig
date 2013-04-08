@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    
+    <title>GHouse{% if page_title is defined %} &mdash; {{ page_title|raw }}{% endif %}</title>
+    <link href='http://fonts.googleapis.com/css?family=Cantarell:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ app.css_url }}/styles.min.css">
+    
+    <link rel="shortcut icon" href="icon.png">{# do this #}
+    <link rel="apple-touch-icon-precomposed" href="icon.png">{# do this #}
+    <meta name="apple-mobile-web-app-title" content="GHouse">
+    <link type="text/plain" rel="author" href="humans.txt">
+
+    <script data-main="/assets/js/scripts/{% if page_script %}{{ page_script }}{% else %}main{% endif %}" src="{{ app.js_url }}/scripts/require-jquery.js"></script>
+</head>
+<body>
+
+	<div class="wrapper">
+        <div class="preload-sprites">
+            <img src="/assets/img/ghouse-logo.png">
+        </div>
+
+		{% block content %}{% endblock %}
+        
+
+        <div class="footer">
+
+            <div class="footer__border"><div></div></div><!--
+            
+        --><div class="footer__branding">
+                {% if home is not defined %}<a href="{{ app.base_url }}" title="GHouse">{% endif %}
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" class="sprite  sprite--ghouse{% if home is defined %}  home{% endif %}">
+                {% if home is not defined %}</a>{% endif %}
+                <div class="social-mobile">
+                    <a href="spotify:search:label:ghouse">
+                        <i class="icon  icon--social" data-icon="&#xF30A"></i>
+                    </a> 
+                    <a href="http://twitter.com/ghouse">
+                        <i class="icon" data-icon="&#xF099"></i>
+                    </a> 
+                    <a href="http://facebook.com/ghouse">
+                        <i class="icon" data-icon="&#xF09A"></i>
+                    </a> 
+                    <a href="mailto:info@ghouserecordings.com">
+                        <i class="icon" data-icon="&#xF0E0"></i>
+                    </a>
+                </div>
+            </div><!--
+
+        --><div class="footer__copyright">
+                <span>&copy; 2013 GHouse Ltd</span>
+                <span>Music Label(s) + Booking Agency</span>
+            </div><!--
+
+        --><div class="footer__social">
+                <a href="spotify:search:label:ghouse">
+                    <i class="icon  icon--social" data-icon="&#xF30A"></i>
+                </a> 
+                <a href="http://twitter.com/ghouse">
+                    <i class="icon" data-icon="&#xF099"></i>
+                </a> 
+                <a href="http://facebook.com/ghouse">
+                    <i class="icon" data-icon="&#xF09A"></i>
+                </a> 
+                <a href="mailto:info@ghouserecordings.com">
+                    <i class="icon" data-icon="&#xF0E0"></i>
+                </a>
+            </div>
+        </div><!-- /footer -->
+
+	</div> <!-- /wrapper -->
+
+</body>
+</html>

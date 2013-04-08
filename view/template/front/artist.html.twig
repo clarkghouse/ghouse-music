@@ -1,0 +1,106 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+	
+	<div class="artist">
+
+
+			<div class="artist__header{% if app.artist.shows.0 is not defined %}  artist__header--full{% endif %}">
+				<hgroup>
+					<h1>
+						{{ app.artist.name|raw }}
+						<a href="{{ app.artist.tweet_link }}" rel="tweet" class="btn  btn--big-tweet  float--right"><i class="icon" data-icon="&#xF099"></i></a>
+					</h1>
+					<h3>{{ app.artist.location|raw }}</h3>
+
+				</hgroup>
+
+
+				
+			</div><!--
+
+		-->{% if app.artist.shows.0 is defined %}<div class="artist__live">
+				<section>
+					{# $TODO make flyout pane for extra shows #}
+					<table class="table--songkick">
+						{% for show in app.artist.shows %}
+						{% if loop.index < 3 %}
+						<tr>
+							<td>
+								<strong>{{ show.date|date('M d') }}</strong>
+							</td>
+							<td>
+								{{ show.city }}
+							</td>
+							<td>
+								<a href="{{ show.url }}">
+									tickets
+								</a>
+							</td>
+						</tr>
+						{% endif %}
+						{% endfor %}
+					</table>
+
+					<div{% if app.artist.shows|length > 2 %} class="more-shows"{% endif %}>
+						{% if app.artist.shows|length > 2 %}<h4>hover for more</h4>{% endif %}
+						
+						{% if app.artist.shows|length > 2 %}
+						<div class="more-shows__shows">
+							<table class="table--songkick">
+								{% for show in app.artist.shows %}
+								{% if loop.index > 2 %}
+								<tr>
+									<td>
+										<strong>{{ show.date|date('M d') }}</strong>
+									</td>
+									<td>
+										{{ show.city }}
+									</td>
+									<td>
+										<a href="{{ show.url }}">
+											tickets
+										</a>
+									</td>
+								</tr>
+								{% endif %}
+								{% endfor %}
+							</table>
+
+							<p class="songkick-attribution">
+								<a href="http://www.songkick.com/artists/{{ app.artist.songkick_artist_id }}"><i class="sprite sprite--songkick"></i></a>
+							</p>						
+						</div>
+						{% endif %}
+					</div>
+				</section>
+			</div><!--{% endif %}
+
+		--><div class="artist__border"><div></div></div>
+
+
+	</div>
+
+	<div class="releases">
+
+
+			<div class="releases__active-release">
+				{% include 'partials/release.html.twig' %}
+			</div><!--
+
+		 --><div class="releases__releases-grid" data-release-slug="{{ featured_release.slug }}">
+				{% for release in app.artist.releases %}<div class="releases-grid__release">
+					<a class="btn  img-btn  img-btn--label{% if release.slug == featured_release.slug %} img-btn--label-active{% endif %}" href="{{ app.base_url }}/{{ app.artist.slug }}/releases/{{ release.slug }}" data-toggle="release" data-release-slug="{{ release.slug }}" data-artist-slug="{{ app.artist.slug }}">
+						<img src="{{ app.base_url }}/img/artist/{{ app.artist.slug }}/releases/{{ release.slug }}.{{ release.picture_ext }}"/>
+						<div class="caption">
+							<div class="caption__backdrop"></div>
+							<div class="caption__content">{{ release.name|raw }}</div>
+						</div>
+					</a>
+				</div>{% endfor %}
+			</div>
+
+	</div>
+
+
+{% endblock %}
