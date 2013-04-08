@@ -48,11 +48,12 @@ $app['songkick.options.api_key'] = 'fL8GRfZV8WDvsRds';
 
 
 // load config from app.yml
-$application_config = Yaml::parse($app['base_dir'].'/config/app.yml');
+$application_config 	 = Yaml::parse($app['base_dir'].'/config/app.yml');
+$application_ext_config	 = Yaml::parse($app['base_dir'].'/config/app-env.yml');
 
 
 // general app settings
-$app['env']						= $application_config['env'];
+$app['env']						= $application_ext_config['env'];
 $app['debug'] 					= ($app['env'] == 'local' || $app['env'] == 'dev') ? true : false;
 $app['uploads_url']				= $app['base_url'] . '/' . 'uploads';
 $app['assets_url']				= $app['base_url'] . '/' . 'assets';

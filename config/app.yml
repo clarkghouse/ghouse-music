@@ -1,5 +1,4 @@
-# app configuration
-env: local                          # local, dev, or prod
+# app configuration - same on remote/server
 local:                              # settings for local environment
     db:
         driver: pdo_mysql
@@ -7,17 +6,16 @@ local:                              # settings for local environment
         host: 127.0.0.1
         user: root
         password: vrooom
-# dev:                                # settings for development environment
-#     db:
-#         driver: 
-#         dbname: 
-#         host: 
-#         user: 
-#         password: 
-# prod:                               # settings for production environment
-#     db:
-#         driver:
-#         dbname:
-#         host:
-#         user:
-#         password:
+dev:                                # settings for development environment
+    db:
+        driver: pdo_mysql
+        dbname: ghouseco_music
+        host: mysql.music.ghouse.co
+        user: ghouseco_music
+        password: gh0u$3c0mus!c
+prod:                               # settings for production environment
+        driver: pdo_mysql
+        dbname: ghouseco_music
+        host: mysql.music.ghouse.co
+        user: ghouseco_music
+        password: gh0u$3c0mus!c
