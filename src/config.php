@@ -16,8 +16,8 @@ date_default_timezone_set('America/New_York');
 
 
 // Base URL and DIR for application -- please set explicitly here
-$app['base_url']	= "http://music.ghousebeta.co";
-$app['base_dir']	= "/Users/clark/Sites/ghouse";
+$app['base_url']	= "http://music.ghouse.co";
+$app['base_dir']	= "/home/ghouseco/music.ghouse.co/";
 
 
 // swiftmailer

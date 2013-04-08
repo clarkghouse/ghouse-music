@@ -1,8 +1,7 @@
 TEAM
 
-    Clark Burkhardt -- Developer -- @wellbaker
-    Ryan Bambery -- Designer -- @wellbaker
-
+    Clark Burkhardt -- Developer
+    Ryan Bambery -- Designer
 
 
 SITE
