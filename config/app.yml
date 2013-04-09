@@ -10,12 +10,12 @@ dev:                                # settings for development environment
     db:
         driver: pdo_mysql
         dbname: ghouseco_music
-        host: mysql.music.ghouse.co
+        host: 208.97.161.162
         user: ghouseco_music
         password: gh0u$3c0mus!c
 prod:                               # settings for production environment
         driver: pdo_mysql
         dbname: ghouseco_music
-        host: mysql.music.ghouse.co
+        host: 208.97.161.162
         user: ghouseco_music
         password: gh0u$3c0mus!c

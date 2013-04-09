@@ -53,4 +53,31 @@ $app->mount('/img', new GHouse\Controller\Provider\ImageControllerProvider());
 $app->mount('/', new GHouse\Controller\Provider\MainControllerProvider());
 
 
+
+// error handler
+$app->error(function (Exception $e) use ($app) {
+
+
+
+        $error = array(
+        	'type' => get_class($e),
+        	'code' => $e->getCode(),
+        	'message' => $e->getMessage(),
+        	'line' => $e->getLine(),
+        	'trace' => $e->getTraceAsString()
+        );
+
+        if ($app['env'] == 'prod'){
+        	// E-mail error digest to clark@ghouse.co
+        }
+
+        $app['error'] = $error;
+
+
+        return $app['twig']->render('error.html.twig');
+
+    }
+);
+
+
 return $app;

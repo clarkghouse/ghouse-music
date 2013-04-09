@@ -129,6 +129,77 @@ body{
 	}
 }
 
+/* Error notice */
+.error-notice{
+	text-align:center;
+
+	h1{
+		@extend .giga;
+		color:$brand-color;
+		margin-bottom:$base-spacing-unit*2;
+	}
+	
+	p{
+		@extend .lead;
+	}
+
+	small{
+		display:block;
+		margin-bottom:$base-spacing-unit;
+	}
+	
+		small a{
+			@include font-size(16px);
+			font-variant:small-caps;
+			text-decoration:none;
+			opacity:.8;
+
+			&:hover{
+				opacity:1;
+			}
+
+			&:before{
+				content:"←";
+				margin-right:4px;
+			}
+		}
+
+	dl{
+		background:#000;
+		color:lime;
+		overflow:scroll;
+
+		dt, dd{
+			padding:2px $half-spacing-unit 4px $half-spacing-unit;
+			display:block;
+			@include font-size(14px);
+			letter-spacing:2px;
+			font-family:'Courier',Courier,monospace;
+			@include vendor(text-shadow, 1px 1px 1px darken(#fff,25%));
+		}
+
+		dt{
+			@extend .text--left;
+			font-weight:800;
+			margin-bottom:$base-spacing-unit;
+		}
+
+		dd{
+			@extend .text--left;
+			margin-left:0px;
+			margin-bottom:$half-spacing-unit;
+			padding-left:$base-spacing-unit;
+		}
+
+		dt:first-child, dd:first-child{
+			display:inline-block;
+			clear:none;
+			padding-right:4px;
+		}
+	}
+
+}
+
 .preload-sprites
 {
 	display:none!important;

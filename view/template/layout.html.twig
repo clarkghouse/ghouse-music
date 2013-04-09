@@ -13,7 +13,7 @@
     <meta name="apple-mobile-web-app-title" content="GHouse">
     <link type="text/plain" rel="author" href="humans.txt">
 
-    <script data-main="/assets/js/scripts/{% if page_script %}{{ page_script }}{% else %}main{% endif %}" src="{{ app.js_url }}/scripts/require-jquery.js"></script>
+    <script data-main="/assets/js/scripts/{% if page_script is defined %}{{ page_script }}{% else %}main{% endif %}" src="{{ app.js_url }}/scripts/require-jquery.js"></script>
 </head>
 <body>
 
