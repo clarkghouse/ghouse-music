@@ -1,0 +1,29 @@
+/*------------------------------------*\
+    $DOBIS-PAGE.SCSS
+\*------------------------------------*/
+/*body*/.dobis{ border-color:#555; }
+
+.dobis-header{
+	height:$base-spacing-unit*2.5;
+	border-bottom:solid #ccc 1px;
+	padding-bottom:$half-spacing-unit;
+	margin-bottom:$base-spacing-unit;
+	clear:both;
+	display:block;
+}
+
+.artists-grid--dobis{
+
+}
+
+.footer--dobis{
+
+	@extend .grid--full;
+	margin-top:$base-spacing-unit*2;
+
+	.footer__branding{
+		@extend .text--center;
+		margin-left:-$base-spacing-unit;
+		width:100%!important;
+	}
+}

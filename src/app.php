@@ -14,6 +14,8 @@ use Silex\Provider\MonologServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 use Symfony\Component\Translation\Loader\YamlFileLoader;
 use GHouse\Songkick\Provider\SongkickServiceProvider;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 
 class ghouseApplication extends Application
@@ -47,8 +49,33 @@ $app->register(new SongkickServiceProvider());
 // global middlewares
 // require __DIR__.'/middlewares.php';
 
+$app['slugify'] = $app->protect(function($text) {
+
+    $text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+
+    // trim
+    $text = trim($text, '-');
+
+    // transliterate
+    $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+    // lowercase
+    $text = strtolower($text);
+
+    // remove unwanted characters
+    $text = preg_replace('~[^-\w]+~', '', $text);
+
+    if (empty($text))
+    {
+        return 'n-a';
+    }
+
+    return $text;
+});
+
 
 // mount controllers
+$app->mount('/dobismaster', new GHouse\Controller\Provider\DobisMasterControllerProvider());
 $app->mount('/img', new GHouse\Controller\Provider\ImageControllerProvider());
 $app->mount('/', new GHouse\Controller\Provider\MainControllerProvider());
 
@@ -69,6 +96,11 @@ $app->error(function (Exception $e) use ($app) {
 
         if ($app['env'] == 'prod'){
         	// E-mail error digest to clark@ghouse.co
+        }
+
+        if($e instanceof NotFoundHttpException || $e instanceof HttpException)
+        {
+            $error['code'] = 404;
         }
 
         $app['error'] = $error;

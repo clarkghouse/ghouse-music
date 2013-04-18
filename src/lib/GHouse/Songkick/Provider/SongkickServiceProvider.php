@@ -20,10 +20,10 @@ class SongkickServiceProvider implements ServiceProviderInterface
 
 
 		$app['songkick.get_artist_concerts'] = $app->protect(function ($artist_id = null) use ($app) {
-			// throw an error if the artist_id wasn't passed
+			// return false if no songkick ID
 			if (!isset($artist_id))
 			{
-				return $app->abort(500, 'Songkick Artist ID was not provided.');
+				return false;
 			}
 
 			// send a CURL JSON request to get the artist's upcoming concerts

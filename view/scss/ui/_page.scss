@@ -1,5 +1,5 @@
 /*------------------------------------*\
-    $PAGE
+    $PAGE.SCSS
 \*------------------------------------*/
 html{
 	@extend .force-max-height;
@@ -71,6 +71,9 @@ body{
 
 	.footer__branding, .footer__social{
 		@extend .lap-and-up-one-sixth;
+		i{
+			font-size:20px;
+		}
 	}
 
 	.footer__branding{

@@ -1,12 +1,66 @@
 /*------------------------------------*\
-    $BUTTONS
+    $BUTTONS.SCSS
 \*------------------------------------*/
 .btn{
 	font-family:Kefa, 'Kefa', Georgia, serif;
 	&:hover{
-		@include vendor(text-shadow, 1px 1px #999);
+		@include vendor(text-shadow, 1px 1px #aaa);
 	}
 }
+
+.btn--submit, .btn--view-artist, .btn--login, .btn--logout, .btn--remove-release{
+	@include vendor(border-radius, 0px);
+	margin-left:$half-spacing-unit/2;	
+	font-family:'Courier',Courier,monospace;
+	font-variant:small-caps;
+	&:hover{ @include vendor(text-shadow, none); }
+}
+
+.btn--remove-release{
+	margin-left:0px;
+	background:darken(red, 20%);
+	&:hover{ background:darken(red, 28%) }
+	&:active{ background:darken(red, 32%) }
+	color:#fff;
+}
+
+.btn--submit, .btn--view-artist, .btn--logout{
+	@extend .float--right;
+	line-height:$base-spacing-unit*1.5;
+	margin-top:$base-spacing-unit/2;
+}
+
+.btn--submit{
+	background:#8EE8A6;
+	&:hover{ background:darken(#8EE8A6, 8%); }
+	&:active{ background:darken(#8EE8A6, 22%); }
+}
+
+.btn--view-artist{
+	color:#fff;
+	&:hover{ background:darken($beautons, 8%); }
+	&:active{ background:darken($beautons, 22%); }	
+}
+
+
+.btn--login{
+	@extend .btn--full;
+	font-size:20px;
+}
+
+
+.btn--login, .btn--logout{
+	background:#ccc;
+
+	&:hover{
+		background:#c0c0c0;
+	}
+
+	&:active{
+		background:#a0a0a0;
+	}
+}
+
 
 .btn--twitter{
 	@extend .icon-text;
@@ -15,7 +69,6 @@
 	border:solid 1px;
 	border-color:darken(#D1F5FF, 40%);
 	color:#fff;
-	@include vendor(text-shadow, 1px 1px #aaa);
 
 	i{
 		@extend .icon-text__icon;
